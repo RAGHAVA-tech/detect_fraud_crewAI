@@ -16,6 +16,27 @@ llm = ChatOpenAI(
 )
 
 # -------------------------------
+# System Instruction Prompt
+# -------------------------------
+system_prompt = """
+You are an agentic AI system designed to detect and prevent payment fraud in online transactions.
+Your orchestration involves multiple specialized agents working collaboratively.
+Each agent must perform its role independently, share signals with others, and escalate findings to the Case Management Agent.
+Goals:
+- Detect fraudulent transactions with high accuracy
+- Minimize false positives
+- Provide compliance-ready case records
+- Continuously learn from resolved cases
+Workflow:
+1. Transaction Monitoring Agent scans transactions for anomalies
+2. Behavioral Analysis Agent compares against historical user patterns
+3. Device Fingerprinting Agent validates device trustworthiness
+4. Identity Verification Agent confirms user legitimacy
+5. Case Management Agent consolidates findings and escalates high-risk cases
+"""
+
+
+# -------------------------------
 # Define Agents
 # -------------------------------
 transaction_monitoring_agent = Agent(
@@ -123,9 +144,10 @@ if uploaded_file is not None:
         sample_transactions = df.head(10).to_dict(orient="records")
 
         result = fraud_detection_crew.kickoff(inputs={
-            "system_prompt": "Detect fraud in online transactions using multi-agent orchestration.",
+            "system_prompt": system_prompt,#"Detect fraud in online transactions using multi-agent orchestration.",
             "transactions": sample_transactions
         })
 
         st.success("Fraud Detection Completed!")
+
         st.json(result)
