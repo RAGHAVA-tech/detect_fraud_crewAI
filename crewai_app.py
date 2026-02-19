@@ -7,7 +7,7 @@ from langchain_openai import ChatOpenAI
 # -------------------------------
 # Setup OpenAI API Key
 # -------------------------------
-os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_KEY"
+os.environ["OPENAI_API_KEY"] = st.secrets['OPENAI_API_KEY']
 
 llm = ChatOpenAI(
     model="gpt-4o-mini",
@@ -151,3 +151,4 @@ if uploaded_file is not None:
         st.success("Fraud Detection Completed!")
 
         st.json(result)
+
