@@ -43,7 +43,7 @@ transaction_monitoring_agent = Agent(
     role="Transaction Monitoring Agent",
     goal="Scan transactions for anomalies and flag suspicious activity.",
     backstory="Expert in transaction analysis, anomaly detection, and fraud signals.",
-    llm=llm,
+    llm="gpt-4",
     verbose=True
 )
 
@@ -51,7 +51,7 @@ behavioral_analysis_agent = Agent(
     role="Behavioral Analysis Agent",
     goal="Compare current transaction activity against historical user behavior.",
     backstory="Specialist in behavioral analytics and pattern recognition.",
-    llm=llm,
+    llm="gpt-4",
     verbose=True
 )
 
@@ -59,7 +59,7 @@ device_fingerprinting_agent = Agent(
     role="Device Fingerprinting Agent",
     goal="Validate device trustworthiness and detect anomalies.",
     backstory="Expert in device fingerprinting, IP analysis, and geolocation checks.",
-    llm=llm,
+    llm="gpt-4",
     verbose=True
 )
 
@@ -67,7 +67,7 @@ identity_verification_agent = Agent(
     role="Identity Verification Agent",
     goal="Confirm legitimacy of the user using identity verification signals.",
     backstory="Handles MFA, biometrics, and KYC validation.",
-    llm=llm,
+    llm="gpt-4",
     verbose=True
 )
 
@@ -75,7 +75,7 @@ case_management_agent = Agent(
     role="Case Management Agent",
     goal="Consolidate findings, escalate high-risk cases, and generate compliance-ready reports.",
     backstory="Responsible for case aggregation, escalation, and reporting.",
-    llm=llm,
+    llm="gpt-4",
     verbose=True
 )
 
